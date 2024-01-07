@@ -4,21 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.mutableStateOf
-import ru.com.bulat.startandroidlessons.ui.lessons.HomeScreen
+import ru.com.bulat.startandroidlessons.ui.lessons.ClickCounter
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val text = mutableStateOf("")
+        val counter = mutableStateOf(0)
 
         setContent {
-            HomeScreen(
-                text,
-                onTextChanged = { newText ->
-                    text.value = newText
-                }
-            )
+            ClickCounter(counterValue = counter.value) {
+                val newValue = counter.value + 1
+                counter.value = newValue
+            }
         }
     }
 }
