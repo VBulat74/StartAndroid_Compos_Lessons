@@ -9,16 +9,14 @@ import ru.com.bulat.startandroidlessons.ui.lessons.HomeScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val checked = mutableStateOf(true)
+
+        val text = mutableStateOf("")
 
         setContent {
             HomeScreen(
-                checked,
-                onCheckedChange = { newCheckedValue ->
-                    checked.value = newCheckedValue
-                },
-                onTextClick = {
-                    checked.value = !checked.value
+                text,
+                onTextChanged = { newText ->
+                    text.value = newText
                 }
             )
         }
