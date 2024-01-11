@@ -31,7 +31,7 @@ fun SomeItem(text: String) {
 }
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen_list() {
     Log.d("AAA", "Home screen")
     val list = remember() {
         List(20) { "Item ${it + 1}" }.toMutableStateList()
